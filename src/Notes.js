@@ -101,7 +101,7 @@ return (
             <input
               type="text"
               id="title"
-              style={{ backgroundColor: "rgb(123,140,160)" }}
+              style={{ backgroundColor: "rgb(123,140,160)", color: "whitesmoke" }}
               value={currentNote.title}
               onChange={(e) =>
                 setCurrentNote({ ...currentNote, title: e.target.value })
@@ -113,7 +113,7 @@ return (
             <label htmlFor="content">Content:</label>
             <textarea
               id="content"
-              style={{ backgroundColor: "rgb(123,140,160)" }}
+              style={{ backgroundColor: "rgb(123,140,160)", color: "whitesmoke" }}
               value={currentNote.content}
               onChange={(e) =>
                 setCurrentNote({ ...currentNote, content: e.target.value })
