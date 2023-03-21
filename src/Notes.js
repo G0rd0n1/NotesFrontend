@@ -12,6 +12,8 @@ const Notes = () => {
     title: "",
     content: "",
   });
+  const [isEditing, setIsEditing] = useState(false);
+
   useEffect(() => {
     getNotes();
   }, []);
@@ -52,6 +54,7 @@ const createNote = async () => {
       title: "",
       content: "",
     });
+    setIsEditing(false)
     getNotes();
   };
 
@@ -72,7 +75,7 @@ const deleteNote = async (id) => {
 return (
   <Container>
     <div className="container">
-      <div className="row">
+      <div className="row1">
         <div className="col-md-12">
           <img
             src="https://igamingbusiness.com/wp-content/uploads/2022/12/GG-Website_White.png"
@@ -82,7 +85,17 @@ return (
           />
         </div>
         <div className="col-md-12">
-          <h1 className="text-center">Notes</h1>
+          <h1
+            className="text-center"
+            style={{
+              fontSize: 40,
+              fontFamily: "fantasy",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            {isEditing ? "Edit Note" : "New Note"}
+          </h1>
           <div className="form-group">
             <label htmlFor="title">Title:</label>
             <input
@@ -95,7 +108,7 @@ return (
               className="form-control"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group" style={{ paddingBottom: 15 }}>
             <label htmlFor="content">Content:</label>
             <textarea
               id="content"
@@ -106,24 +119,43 @@ return (
               className="form-control"
             ></textarea>
           </div>
-          <div>
-            <button onClick={createNote} className="btn btn-success mr-2">
-              Add note
-            </button>
-            <button onClick={updateNote} className="btn btn-primary">
-              Update note
-            </button>
+          <div style={{ paddingBottom: 25 }}>
+            {!isEditing && (
+              <button
+                onClick={createNote}
+                className="btn btn-success mr-2"
+                style={{ paddingLeft: 25 }}
+              >
+                Add note
+              </button>
+            )}
+            {isEditing && (
+              <button onClick={updateNote} className="btn btn-primary">
+                Update note
+              </button>
+            )}
           </div>
         </div>
+
         <div className="col-md-12">
-          <h1 className="text-center">Notes List</h1>
+          <h1
+            className="text-center"
+            style={{
+              fontSize: 40,
+              fontFamily: "fantasy",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            Notes List
+          </h1>
           <table className="table notes-list table-hover">
             <thead>
               <tr>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Date &amp; Time</th>
-                <th>Actions</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -143,7 +175,10 @@ return (
                   </td>
                   <td>
                     <button
-                      onClick={() => setCurrentNote(note)}
+                      onClick={() => {
+                        setCurrentNote(note);
+                        setIsEditing(true);
+                      }}
                       className="btn btn-primary mr-2"
                     >
                       <FaPen style={{ color: "white" }} />
