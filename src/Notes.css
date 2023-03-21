@@ -1,11 +1,10 @@
 body {
     background-color: #F5F5F5;
     font-family: Arial, sans-serif;
+        background-color:  rgb(20,47,90);
+
 }
-.heading {
-  font-size: 50px;
-  color: red;
-}
+
 
 .notes-wrapper img {
     max-width: 100%;
@@ -16,17 +15,19 @@ body {
 }
 
 .container {
-    
+    background-color: rgb(192,194,195);
     width: 80%;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
 }
 
-
+.input-section{
+    background-color: transparent;
+}
 .input-section button:hover {
     background-color: #3e8e41;
 }
@@ -36,7 +37,7 @@ body {
 }
 
 .notes-list th {
-    background-color: #4CAF50;
+    background-color: rgb(41,71,117);
     color: whitesmoke;
     font-size: 18px;
     padding: 10px;

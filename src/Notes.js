@@ -101,6 +101,7 @@ return (
             <input
               type="text"
               id="title"
+              style={{ backgroundColor: "rgb(123,140,160)" }}
               value={currentNote.title}
               onChange={(e) =>
                 setCurrentNote({ ...currentNote, title: e.target.value })
@@ -112,6 +113,7 @@ return (
             <label htmlFor="content">Content:</label>
             <textarea
               id="content"
+              style={{ backgroundColor: "rgb(123,140,160)" }}
               value={currentNote.content}
               onChange={(e) =>
                 setCurrentNote({ ...currentNote, content: e.target.value })
@@ -124,7 +126,7 @@ return (
               <button
                 onClick={createNote}
                 className="btn btn-success mr-2"
-                style={{ paddingLeft: 25 }}
+                style={{ backgroundColor: "rgb(41, 71, 117)" }}
               >
                 Add note
               </button>
